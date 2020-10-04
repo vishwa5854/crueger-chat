@@ -2,9 +2,9 @@ const mysql = require('mysql');
 
 const connection = mysql.createConnection(
     {
-        host: 'localhost',
+        host: 'crueger-chat-db-instance.cyjphlojaftv.us-east-1.rds.amazonaws.com',
         port : '3306',
-        user: 'root',
+        user: 'vishwa',
         password: 'password',
         database: 'messenger'
     }

@@ -24,7 +24,7 @@
                     redirect: 'follow'
                 };
 
-                await fetch("http://localhost:3000/messages/sendMessage", requestOptions)
+                await fetch("https://crueger-chat.herokuapp.com/messages/sendMessage", requestOptions)
                     .then(response => response.text())
                     .then(result => console.log(result))
                     .catch(error => console.log('error', error));
@@ -46,7 +46,7 @@
                     redirect: 'follow'
                 };
                 
-                await fetch("http://localhost:3000/messages/" + path, requestOptions)
+                await fetch("https://crueger-chat.herokuapp.com/messages/" + path, requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     if(result.length !== 0){
