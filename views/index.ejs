@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Who are you ?</title>
+	<style>
+		.fromUser  {
+			margin : auto;
+			text-align: center;
+		}
+		.toUser  {
+			margin : auto;
+			text-align: center;
+		}
+	</style>
+	<script>
+		let renderChatPage =  () => {
+			let FROM_USER = document.getElementById("FROM_USER").value;
+			let TO_USER = document.getElementById("TO_USER").value;
+			window.location.replace('http://localhost:3000/chat?from=' + FROM_USER + '&to=' + TO_USER);
+		}
+	</script>
+</head>
+<body>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<center>
+		<p>
+			Hey kindly enter the following
+		</p>
+	</center>
+	<div class="fromUser">
+		<input type="text" placeholder="FROM" id="FROM_USER">		
+	</div>
+	<div class="toUser">
+		<input type="text" placeholder="TO" id="TO_USER">
+		<br>
+		<br>
+		<input type="button" value="submit" onclick="renderChatPage()">
+	</div>
+</body>
+</html>
