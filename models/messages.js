@@ -22,7 +22,7 @@ let send = (body, cb) => {
 
 
 let getAll = (body, cb) => {
-    let query = `select messageData, fromUser, id, time from messages where id > ${body.id} and fromUser = "${body.from}" and toUser = "${body.to}" union select messageData, fromUser, id from messages where id > ${body.id} and fromUser = "${body.to}" and toUser = "${body.from}" order by id;`
+    let query = `select messageData, fromUser, id, time from messages where id > ${body.id} and fromUser = "${body.from}" and toUser = "${body.to}" union select messageData, fromUser, id, time from messages where id > ${body.id} and fromUser = "${body.to}" and toUser = "${body.from}" order by id;`
     console.log(query);
     executeDBQuery(query, cb);
 }
