@@ -54,7 +54,7 @@
                 .then(result => {
                     if(result.length !== 0){
                         for (let i=0; i<result.length;i++) {
-                            document.getElementById("received").value += '\n' + result[i].time + result[i].fromUser + '->' + result[i].messageData;
+                            document.getElementById("received").value += '\n' + result[i].time + " " + result[i].fromUser + '->' + result[i].messageData;
                         }
                         document.getElementById("received").value += '\n';
                         id = result[result.length - 1].id;
