@@ -10,12 +10,15 @@
                 console.log(FROM_USER + "\n" + TO_USER);
             }
             let send = async () => {
-                document.getElementById("received").value += FROM_USER + '->' + document.getElementById("message").value + '\n';
+                let currentDateAndTime = new Date();
+                let time = currentDateAndTime.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+                let date = "[" + currentDateAndTime.getDate() + "/" + (parseInt(currentDateAndTime.getMonth()) + 1).toString() + "," + time +"]";
+                document.getElementById("received").value += date + " " + FROM_USER + '->' + document.getElementById("message").value + '\n';
                 
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/json");
 
-                var raw = JSON.stringify({"message":document.getElementById("message").value,"from" : FROM_USER,"to":TO_USER});
+                var raw = JSON.stringify({"message":document.getElementById("message").value,"from" : FROM_USER,"to":TO_USER, "time" : date});
                 document.getElementById("message").value = "";
                 var requestOptions = {
                     method: 'POST',
@@ -51,7 +54,7 @@
                 .then(result => {
                     if(result.length !== 0){
                         for (let i=0; i<result.length;i++) {
-                            document.getElementById("received").value += '\n' + result[i].fromUser + '->' + result[i].messageData;
+                            document.getElementById("received").value += '\n' + result[i].time + result[i].fromUser + '->' + result[i].messageData;
                         }
                         document.getElementById("received").value += '\n';
                         id = result[result.length - 1].id;

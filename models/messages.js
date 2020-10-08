@@ -14,21 +14,21 @@ let executeDBQuery = (query, cb) => {
 }
 
 let send = (body, cb) => {
-    let query = `insert into messages (messageData, fromUser, toUser, status) 
-                    values ('${body.message}' ,'${body.from}', '${body.to}', 0);`
+    let query = `insert into messages (messageData, fromUser, toUser, status, time) 
+                    values ('${body.message}' ,'${body.from}', '${body.to}', 0, '${body.time}');`
     executeDBQuery(query, cb);
 }
 
 
 
 let getAll = (body, cb) => {
-    let query = `select messageData, fromUser, id from messages where id > ${body.id} and fromUser = "${body.from}" and toUser = "${body.to}" union select messageData, fromUser, id from messages where id > ${body.id} and fromUser = "${body.to}" and toUser = "${body.from}" order by id;`
+    let query = `select messageData, fromUser, id, time from messages where id > ${body.id} and fromUser = "${body.from}" and toUser = "${body.to}" union select messageData, fromUser, id from messages where id > ${body.id} and fromUser = "${body.to}" and toUser = "${body.from}" order by id;`
     console.log(query);
     executeDBQuery(query, cb);
 }
 
 let getNew = (body, cb) => {
-    let query = `select messageData, fromUser, id from messages where id > ${body.id} and fromUser = "${body.from}" and toUser = "${body.to}"`;
+    let query = `select messageData, fromUser, id, time from messages where id > ${body.id} and fromUser = "${body.from}" and toUser = "${body.to}"`;
     executeDBQuery(query, cb);
 }
 

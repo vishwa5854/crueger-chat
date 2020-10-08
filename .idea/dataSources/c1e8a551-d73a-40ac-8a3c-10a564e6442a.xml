@@ -923,7 +923,11 @@
       <Position>5</Position>
       <DataType>int|0s</DataType>
     </column>
-    <key id="289" parent="283" name="PRIMARY">
+    <column id="289" parent="283" name="time">
+      <Position>6</Position>
+      <DataType>varchar(20)|0s</DataType>
+    </column>
+    <key id="290" parent="283" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
